@@ -474,8 +474,8 @@ acpi_get_sig(const char *sig)
                         return tbl;
         }
 
-        LOG_DEBUG("Trying to obtain %s acpi table from ACPI memory\n", sig);
-        return acpi_get_mmap(sig);
+        LOG_DEBUG("ACPI table %s not found in sysfs, skipping memory fallback\n", sig);
+        return NULL;
 }
 
 struct acpi_table *
